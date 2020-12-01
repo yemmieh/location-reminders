@@ -1,0 +1,13 @@
+env_variables:
+  PORT: "5050"
+  LOG_LEVEL:  "debug"
+  NODE_ENV: "local"
+
+  MONGO_USE_SRV: "false"
+  MONGO_HOST: "localhost"
+  MONGO_PORT: "27017"
+  MONGO_DB_NAME: "locationReminder"
+  MONGO_USER: "locationRemindermongouser"
+  MONGO_PASS: "locationRemindermongopass"
+
+  TOP_LEVEL_ROUTE: "/api"

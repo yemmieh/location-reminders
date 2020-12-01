@@ -13,7 +13,7 @@ export class Errors {
     public static unimplemented: string = "UNIMPLEMENTED";
     public static phoneNumberInUse: string = "PHONENUMBER_ALREADY_EXIST";
     public static unknown: string = "UNKNOWN";
-  
+
     public static statusCodeForError(error: string): number {
       switch (error) {
         case Errors.incorrectPassword:
@@ -27,7 +27,7 @@ export class Errors {
           return 400;
       }
     }
-  
+
     public static getErrorMessage(error: any): string {
       if (!!error) {
         if (typeof error === "string") {
@@ -36,17 +36,17 @@ export class Errors {
           return Errors.mapMongooseResponse(error.message);
         }
       }
-  
+
       return Errors.unknown;
     }
-  
-  
+
+
     private static mapMongooseResponse(error: string): string {
       const validationErrorRegex = /^User validation failed:*/;
       if (!validationErrorRegex.test(error)) {
         return error;
       }
-  
+
       if (error.includes("email: can't be blank")) {
         return Errors.invalidEmail;
       } else if (error.includes("email: is invalid")) {
@@ -58,4 +58,3 @@ export class Errors {
       }
     }
   }
-  
